@@ -11,10 +11,10 @@
     "end_to_end_test": "node_modules/.bin/cypress run --env host=$TEST_URL",
     "start": "node_modules/.bin/cypress open --env host=$TEST_URL"
   },
-  "author": "ThoughtWorks",
+  "author": "ThoughtWorks, modifications after fork by geisslfe",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thoughtworks/build-your-own-radar"
+    "url": "https://github.com/geisslfe/build-your-own-radar"
   },
   "keywords": [
     "tech-radar"

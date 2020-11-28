@@ -8,6 +8,14 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![AGPL License](https://badgen.net/github/license/thoughtworks/build-your-own-radar)](https://github.com/thoughtworks/build-your-own-radar)
 
+# TODO
+* drop everything that is not needed (in particular revisit dependencies!)
+* fix / remove / modify tests
+* clean up / modify all pages, make sure to keep appropriate Thoughtworks and license references though
+* adapt color theme
+* modify build and deployment appropriately!
+* fix vulnerabilities
+* fill in blips :) 
 
 A library that generates an interactive radar, inspired by [thoughtworks.com/radar](http://thoughtworks.com/radar).
 
