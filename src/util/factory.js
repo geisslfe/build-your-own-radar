@@ -44,7 +44,7 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
       quadrants[blip.quadrant] = new Quadrant(_.capitalize(blip.quadrant))
     }
     quadrants[blip.quadrant].add(
-      new Blip(blip.name, ringMap[blip.ring], blip.isNew.toLowerCase() === 'true', blip.topic, blip.description))
+      new Blip(blip.name, ringMap[blip.ring], blip.isNew.toLowerCase() === 'true', blip.topic, blip.description, blip.category))
   })
 
   var radar = new Radar()
@@ -52,7 +52,7 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
     radar.addQuadrant(quadrant)
   })
 
-  if (alternativeRadars !== undefined || true) {
+  if (alternativeRadars !== undefined || true) { // TODO: what to do with this?
     alternativeRadars.forEach(function (sheetName) {
       radar.addAlternative(sheetName)
     })
@@ -113,7 +113,7 @@ function setDocumentTitle () {
   document.title = 'Build your own Radar'
 }
 
-function plotLoading (content) {
+function plotLoading (content) { // TODO: adapt
   content = d3.select('body')
     .append('div')
     .attr('class', 'loading')
@@ -129,13 +129,13 @@ function plotLoading (content) {
   plotFooter(content)
 }
 
-function plotLogo (content) {
+function plotLogo (content) { // TODO: adapt
   content.append('div')
     .attr('class', 'input-sheet__logo')
     .html('<a href="https://www.thoughtworks.com"><img src="/images/tw-logo.png" / ></a>')
 }
 
-function plotFooter (content) {
+function plotFooter (content) { // TODO: adapt
   content
     .append('div')
     .attr('id', 'footer')
@@ -150,13 +150,13 @@ function plotFooter (content) {
       'This software is <a href="https://github.com/thoughtworks/build-your-own-radar">open source</a> and available for download and self-hosting.')
 }
 
-function plotBanner (content, text) {
+function plotBanner (content, text) { // TODO: adapt
   content.append('div')
     .attr('class', 'input-sheet__banner')
     .html(text)
 }
 
-function plotErrorMessage (exception) {
+function plotErrorMessage (exception) { // TODO: adapt
   var message = 'Oops! It seems like there are some problems with loading your data. '
 
   var content = d3.select('body')

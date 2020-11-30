@@ -132,7 +132,7 @@ const Radar = function (size, radar) {
   function addRing (ring, order) {
     var table = d3.select('.quadrant-table.' + order)
     table.append('h3').text(ring)
-    return table.append('ul')
+    return table.append('div')
   }
 
   function calculateBlipCoordinates (blip, chance, minRadius, maxRadius, startAngle) {
@@ -169,7 +169,10 @@ const Radar = function (size, radar) {
       .text(quadrant.name())
 
     blips = quadrant.blips()
+
     rings.forEach(function (ring, i) {
+      const categories = []
+      const categoriesToLists = {}
       var ringBlips = blips.filter(function (blip) {
         return blip.ring() === ring
       })
@@ -202,7 +205,14 @@ const Radar = function (size, radar) {
           allBlipCoordinatesInRing)
 
         allBlipCoordinatesInRing.push(coordinates)
-        drawBlipInCoordinates(blip, coordinates, order, quadrantGroup, ringList)
+        if (blip.category() !== undefined && !categories.includes(blip.category())) {
+          categories.push(blip.category())
+          console.log('categories: ' + JSON.stringify(categories))
+          const newCategory = ringList.append('div')
+          newCategory.append('h4').attr('class', 'quadrant-table__category').text(blip.category().toUpperCase())
+          categoriesToLists[blip.category()] = newCategory.append('ul')
+        }
+        drawBlipInCoordinates(blip, coordinates, order, quadrantGroup, categoriesToLists[blip.category()])
       })
     })
   }

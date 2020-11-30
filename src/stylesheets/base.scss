@@ -5,7 +5,9 @@
 @import 'error';
 @import 'header';
 @import 'footer';
-@import url(https://www.thoughtworks.com/css/k8s_production/screen.css);
+// TODO: replace with custom styling
+//@import url(https://www.thoughtworks.com/css/k8s_production/screen.css);
+
 
 body {
   font: 18px 'Open Sans';
@@ -270,6 +272,13 @@ body {
         font-weight: bold;
       }
 
+      h4 {
+        text-transform: uppercase;
+        font-size: $baseFont;
+        margin: 8px 8px;
+        font-weight: 500;
+      }
+
       &.first {
         &.selected {
           float: right;
@@ -302,7 +311,7 @@ body {
 
       ul {
         padding: 0;
-        margin-left: 0;
+        margin-left: 20px;
 
         li {
           list-style-type: none;
